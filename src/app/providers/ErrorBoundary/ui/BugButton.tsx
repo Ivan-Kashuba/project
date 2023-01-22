@@ -20,8 +20,9 @@ export const BugButton = () => {
             <Button
                 theme={ThemeButton.CLEAR}
                 onClick={onThrowError}
-            />
-            {t('Throw Error')}
+            >
+                {t('Throw Error')}
+            </Button>
         </div>
 
     );
