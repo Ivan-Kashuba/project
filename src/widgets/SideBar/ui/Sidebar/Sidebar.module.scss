@@ -1,22 +1,85 @@
 .Sidebar {
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
-  background: var(--sidebar-bg-color);
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg-color);
+    position: relative;
+    transition: width 0.3s;
+}
 
-  position: relative;
-  transition: width 0.3s;
+.switchers {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.toggleArrow {
+    width: 40px;
+    height: 29px;
+    fill: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.toggleBtn {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.items {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    margin-left: 10px;
+}
+
+.item {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    fill: var(--primary-color);
+    width: 24px;
+    height: 24px;
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed)
-}
+    width: var(--sidebar-width-collapsed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.switchers{
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .items {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .item {
+        display: block;
+    }
+
+    .link {
+        width: 0;
+        opacity: 0;
+        transition: 0.2s opacity;
+        margin-left: 0;
+        display: none;
+    }
+
+    .toggleBtn {
+        margin-left: 0;
+    }
 }

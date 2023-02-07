@@ -1,10 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import OpenIcon from 'shared/assets/icons/open-sidebar.svg';
-import CloseIcon from 'shared/assets/icons/close-sidebar.svg';
+import ArrowLeft from 'shared/assets/icons/arrow-left.svg';
+import ArrowRight from 'shared/assets/icons/arrow-right.svg';
+import AboutIcon from 'shared/assets/icons/about.svg';
+import HomeIcon from 'shared/assets/icons/home.svg';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -12,6 +17,8 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+    const { t } = useTranslation();
+
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
@@ -26,9 +33,29 @@ export const Sidebar = ({ className }: SidebarProps) => {
             ])}
         >
 
-            <Button data-testid="sidebar-toggle" theme={ThemeButton.CLEAR} onClick={onToggle}>
-                {collapsed ? <OpenIcon width={40} /> : <CloseIcon width={40} />}
+            <Button
+                data-testid="sidebar-toggle"
+                className={cls.toggleBtn}
+                theme={ThemeButton.CLEAR}
+                onClick={onToggle}
+            >
+                {collapsed
+                    ? <ArrowRight className={cls.toggleArrow} />
+                    : <ArrowLeft className={cls.toggleArrow} />}
             </Button>
+            <div className={cls.items}>
+
+                <AppLink to={RoutePath.main} className={cls.item}>
+                    <HomeIcon className={cls.icon} />
+                    <span className={cls.link}>{t('main')}</span>
+                </AppLink>
+
+                <AppLink to={RoutePath.about} className={cls.item}>
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('about')}</span>
+                </AppLink>
+
+            </div>
             <div className={cls.switchers}>
                 <LangSwitcher />
                 <ThemeSwitcher />

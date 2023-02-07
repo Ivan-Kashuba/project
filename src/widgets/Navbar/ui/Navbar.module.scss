@@ -1,17 +1,9 @@
-.Navbar{
-  width: 100%;
-  height: var(--navbar-height);
-  background: var(--navbar-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid var(--navbar-bottom-line-color);
-}
-
-.links{
-  margin-right: auto;
-}
-
-.mainLink{
-  margin-right: 20px;
+.Navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--navbar-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--navbar-bottom-line-color);
 }
