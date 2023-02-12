@@ -4,6 +4,14 @@
     background: var(--navbar-bg-color);
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 20px 50px;
     border-bottom: 1px solid var(--navbar-bottom-line-color);
+    justify-content: flex-end;
+}
+
+.loginButton {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
