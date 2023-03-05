@@ -45,7 +45,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.Input, {}, [className])}>
-            <div className={cls.label}>
+            <div className={isError ? cls.labelError : cls.label}>
                 {label}
             </div>
 

@@ -6,5 +6,8 @@
   "Update page": "Update page",
   "Login": "Login",
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Login Form": "Login Form",
+  "Incorrect login or password": "Incorrect login or password",
+  "Logout": "Logout"
 }

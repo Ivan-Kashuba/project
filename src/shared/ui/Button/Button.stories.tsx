@@ -41,3 +41,19 @@ OutlineDark.args = {
     children: 'Button',
     theme: ThemeButton.OUTLINE,
 };
+
+export const DisabledLight = Template.bind({});
+DisabledLight.args = {
+    children: 'Button',
+    disabled: true,
+    theme: ThemeButton.OUTLINE,
+};
+
+DisabledLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+    children: 'Button',
+    disabled: true,
+    theme: ThemeButton.OUTLINE,
+};

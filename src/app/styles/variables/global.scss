@@ -1,5 +1,54 @@
+@font-face {
+    font-family: "Lexend300";
+    src:
+        local("Lexend"),
+        url("fonts/Lexend/Lexend-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lexend400";
+    src:
+        local("Lexend"),
+        url("fonts/Lexend/Lexend-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lexend500";
+    src:
+        local("Lexend"),
+        url("fonts/Lexend/Lexend-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lexend600";
+    src:
+        local("Lexend"),
+        url("fonts/Lexend/Lexend-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Mariupol300";
+    src:
+        local("Mariupol"),
+        url("fonts/Mariupol/Mariupol-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Mariupol500";
+    src:
+        local("Mariupol"),
+        url("fonts/Mariupol/Mariupol-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Mariupol600";
+    src:
+        local("Mariupol"),
+        url("fonts/Mariupol/Mariupol-Bold.ttf") format("truetype");
+}
+
 :root {
-    --font-family-main: "Lexend", "Mulish", sans-serif;
+    --font-family-main: "Lexend400", "Mariupol500", sans-serif;
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);

@@ -6,5 +6,8 @@
   "Update page": "Оновити сторінку",
   "Login": "Увійти",
   "Username": "Ім'я користувача",
-  "Password": "Пароль"
+  "Password": "Пароль",
+  "Login Form": "Форма авторизації",
+  "Incorrect login or password": "Невірний логін або пароль",
+  "Logout": "Вийти"
 }
