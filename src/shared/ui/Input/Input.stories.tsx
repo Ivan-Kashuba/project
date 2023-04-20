@@ -46,7 +46,7 @@ export const LightInputWithErrors = Template.bind({});
 LightInputWithErrors.args = {
     label: 'Label',
     isError: true,
-    errorMessage: 'Some Error',
+    errorText: 'Some Error',
 };
 
 LightInputWithErrors.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -65,7 +65,7 @@ LightPasswordInputWithErrors.args = {
     label: 'Label',
     isPassword: true,
     isError: true,
-    errorMessage: 'Some Error',
+    errorText: 'Some Error',
 };
 
 LightPasswordInputWithErrors.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -89,7 +89,7 @@ export const DarkInputWithErrors = Template.bind({});
 DarkInputWithErrors.args = {
     label: 'Label',
     isError: true,
-    errorMessage: 'Some Error',
+    errorText: 'Some Error',
 
 };
 
@@ -105,5 +105,5 @@ DarkPasswordInputWithErrors.args = {
     label: 'Label',
     isPassword: true,
     isError: true,
-    errorMessage: 'Some Error',
+    errorText: 'Some Error',
 };
