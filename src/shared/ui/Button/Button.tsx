@@ -6,6 +6,7 @@ export enum ThemeButton {
     CLEAR = 'clear',
     OUTLINE = 'outline',
     CONFIRM = 'confirm',
+    OUTLINE_RED = 'outline_red'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

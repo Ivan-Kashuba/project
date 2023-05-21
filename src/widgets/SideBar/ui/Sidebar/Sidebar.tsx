@@ -5,6 +5,8 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import ArrowLeft from 'shared/assets/icons/arrow-left.svg';
 import ArrowRight from 'shared/assets/icons/arrow-right.svg';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { SidebarItemsList } from '../../model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';

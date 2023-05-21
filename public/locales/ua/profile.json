@@ -1,4 +1,15 @@
 {
-"Profile": "Профіль",
-"Edit": "Редагувати"
+  "Profile": "Профіль",
+  "Edit": "Редагувати",
+  "Something went wrong during profile loading": "Щось пішло не так під час завантаження профілю",
+  "Try to reload page": "Попробуйте перезавантажити сторінку",
+  "Save": "Зберегти",
+  "Cancel": "Скасувати",
+  "Your name": "Ваше ім'я",
+  "Your surname": "Ваше прізвище",
+  "Your username": "Ваш псевдонім",
+  "Your age": "Ваш вік",
+  "Your city": "Ваше місто",
+  "Your avatar": "Аватар",
+  "Type your avatar link": "Введіть посилання на свій аватар"
 }

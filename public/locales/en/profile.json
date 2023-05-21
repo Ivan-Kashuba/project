@@ -1,4 +1,15 @@
 {
   "Profile": "Profile",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Something went wrong during profile loading": "Something went wrong during profile loading",
+  "Try to reload page": "Try to reload page",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "Your name": "Your name",
+  "Your surname": "Your surname",
+  "Your username": "Your username",
+  "Your age": "Your age",
+  "Your city": "Your city",
+  "Your avatar": "Your avatar",
+  "Type your avatar link": "Type your avatar link"
 }

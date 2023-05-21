@@ -17,6 +17,13 @@
     background: none;
 }
 
+.outline_red {
+    padding: 10px 15px;
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    background: none;
+}
+
 .confirm {
     color: #edf1fd;
     background-color: #ff4f66;

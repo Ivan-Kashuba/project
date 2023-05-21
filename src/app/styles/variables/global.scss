@@ -2,49 +2,49 @@
     font-family: "Lexend300";
     src:
         local("Lexend"),
-        url("fonts/Lexend/Lexend-Light.ttf") format("truetype");
+        url("app/fonts/Lexend/Lexend-Light.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Lexend400";
     src:
         local("Lexend"),
-        url("fonts/Lexend/Lexend-Regular.ttf") format("truetype");
+        url("app/fonts/Lexend/Lexend-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Lexend500";
     src:
         local("Lexend"),
-        url("fonts/Lexend/Lexend-Medium.ttf") format("truetype");
+        url("app/fonts/Lexend/Lexend-Medium.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Lexend600";
     src:
         local("Lexend"),
-        url("fonts/Lexend/Lexend-SemiBold.ttf") format("truetype");
+        url("app/fonts/Lexend/Lexend-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Mariupol300";
     src:
         local("Mariupol"),
-        url("fonts/Mariupol/Mariupol-Regular.ttf") format("truetype");
+        url("app/fonts/Mariupol/Mariupol-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Mariupol500";
     src:
         local("Mariupol"),
-        url("fonts/Mariupol/Mariupol-Medium.ttf") format("truetype");
+        url("app/fonts/Mariupol/Mariupol-Medium.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Mariupol600";
     src:
         local("Mariupol"),
-        url("fonts/Mariupol/Mariupol-Bold.ttf") format("truetype");
+        url("app/fonts/Mariupol/Mariupol-Bold.ttf") format("truetype");
 }
 
 :root {

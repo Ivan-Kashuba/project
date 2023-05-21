@@ -10,5 +10,7 @@
   "Password": "Пароль",
   "Login Form": "Форма авторизації",
   "Incorrect login or password": "Невірний логін або пароль",
-  "Logout": "Вийти"
+  "Logout": "Вийти",
+  "Select currency": "Виберіть валюту",
+  "Select country": "Виберіть країну"
 }

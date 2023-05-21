@@ -1,21 +1,21 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { InputHTMLAttributes, memo, useState } from 'react';
 import ErrorIcon from 'shared/assets/icons/errorIcon.svg';
 import OpenEyeIcon from 'shared/assets/icons/openEyeIcon.svg';
 import CloseEyeIcon from 'shared/assets/icons/closeEyeIcon.svg';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'|'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
-    onChange?: (value :string)=>void;
-    isPassword?:boolean
-    isError?:boolean,
-    errorText?:string,
-    label:string;
-
+    value?: string | number;
+    onChange?: (value: string) => void;
+    isPassword?: boolean
+    isError?: boolean,
+    errorText?: string,
+    label: string;
+    readOnly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -30,10 +30,11 @@ export const Input = memo((props: InputProps) => {
         label,
         placeholder,
         name,
+        readOnly,
         ...otherProps
     } = props;
 
-    const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
 
@@ -43,8 +44,12 @@ export const Input = memo((props: InputProps) => {
         setShowPassword((prev) => !prev);
     };
 
+    const mods:Mods = {
+        [cls.readonly]: readOnly,
+    };
+
     return (
-        <div className={classNames(cls.Input, {}, [className])}>
+        <div className={classNames(cls.Input, mods, [className])}>
             <div className={isError ? cls.labelError : cls.label}>
                 {label}
             </div>
@@ -56,6 +61,7 @@ export const Input = memo((props: InputProps) => {
                 value={value}
                 onChange={onChangeHandler}
                 className={isError ? cls.inputStyleError : cls.inputStyle}
+                readOnly={readOnly}
                 {...otherProps}
             />
 
