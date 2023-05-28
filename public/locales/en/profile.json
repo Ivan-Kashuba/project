@@ -11,5 +11,10 @@
   "Your age": "Your age",
   "Your city": "Your city",
   "Your avatar": "Your avatar",
-  "Type your avatar link": "Type your avatar link"
+  "Type your avatar link": "Type your avatar link",
+  "First and last name required": "First and last name required",
+  "Invalid age": "Invalid age",
+  "Invalid region": "Invalid region",
+  "Data not specified": "Data not specified",
+  "Server error on saving": "Server error on saving"
 }

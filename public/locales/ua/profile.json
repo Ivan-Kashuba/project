@@ -11,5 +11,10 @@
   "Your age": "Ваш вік",
   "Your city": "Ваше місто",
   "Your avatar": "Аватар",
-  "Type your avatar link": "Введіть посилання на свій аватар"
+  "Type your avatar link": "Введіть посилання на свій аватар",
+  "First and last name required": "Ім'я та прізвище обовязкові",
+  "Invalid age": "Некоректний вік",
+  "Invalid region": "Некоректний регін",
+  "Data not specified": "Дані не вказані",
+  "Server error on saving": "Серверна помилка при збереженні"
 }
