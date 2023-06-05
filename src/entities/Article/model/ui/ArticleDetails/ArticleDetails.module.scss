@@ -1,3 +1,43 @@
 .ArticleDetails {
-    font-size: 16px;
+    min-height: 100%;
+}
+
+.avatar {
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.skeleton {
+    margin-top: 15px;
+}
+
+.eyeIcon {
+    fill: var(--primary-color);
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.calendarIcon {
+    width: 24px;
+    height: 24px;
+    fill: #edf1fdff;
+    margin-right: 10px;
+}
+
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.articleInfo {
+    display: flex;
+}
+
+.block {
+    margin-top: 16px;
 }
