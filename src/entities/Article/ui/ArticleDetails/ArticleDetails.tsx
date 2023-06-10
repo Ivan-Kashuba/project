@@ -18,12 +18,12 @@ import CalendarIcon from 'shared/assets/icons/calendarIcon.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import {
     ArticleImageBlockComponent,
-} from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../types/article';
+} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../../slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
     className?: string;
