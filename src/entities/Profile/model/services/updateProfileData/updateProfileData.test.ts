@@ -13,6 +13,7 @@ const data = {
     currency: Currency.UAH,
     city: 'Lviv',
     avatar: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png',
+
 };
 
 describe('updateProfileData.test', () => {

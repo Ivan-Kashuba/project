@@ -7,6 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import DefaultAvatar from 'shared/assets/icons/defaultAvatar.png';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -79,7 +80,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
-                {data?.avatar && <Avatar src={data.avatar} size={120} /> }
+                {data?.avatar && <Avatar src={data.avatar || DefaultAvatar} size={120} /> }
                 <div className={cls.form}>
                     <Input
                         label={t('Your name')}

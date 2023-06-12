@@ -14,5 +14,7 @@
   "Logout": "Вийти",
   "Select currency": "Виберіть валюту",
   "Select country": "Виберіть країну",
-  "Comments are empty": "Коментарі відсутні"
+  "Comments are empty": "Коментарі відсутні",
+  "Type comment text": "Введіть текст коментаря",
+  "Send": "Відправити"
 }

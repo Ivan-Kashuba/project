@@ -17,6 +17,8 @@ import {
 } from 'entities/Profile';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
     className?: string;
@@ -29,12 +31,7 @@ const reducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    const { id } = useParams<{ id: string }>();
 
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
@@ -49,6 +46,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('Invalid age'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('First and last name required'),
     };
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
 
     const onChangeFirstName = useCallback((value) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));

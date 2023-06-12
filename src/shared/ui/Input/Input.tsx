@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputProps {
     isPassword?: boolean
     isError?: boolean,
     errorText?: string,
-    label: string;
+    label?: string;
     readOnly?: boolean
 }
 
@@ -50,9 +50,11 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.Input, mods, [className])}>
-            <div className={isError ? cls.labelError : cls.label}>
-                {label}
-            </div>
+            {label && (
+                <div className={isError ? cls.labelError : cls.label}>
+                    {label}
+                </div>
+            )}
 
             <input
                 type={!isPassword ? type : `${showPassword ? 'text' : 'password'}`}

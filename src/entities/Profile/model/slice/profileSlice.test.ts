@@ -46,7 +46,7 @@ describe('profileSlice.test', () => {
             },
         });
     });
-    test('test update profile service pending', () => {
+    test('test update profile services pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
@@ -57,7 +57,7 @@ describe('profileSlice.test', () => {
             validateErrors: undefined,
         });
     });
-    test('test update profile service fulfilled', () => {
+    test('test update profile services fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
             validateErrors: [ValidateProfileError.SERVER_ERROR],

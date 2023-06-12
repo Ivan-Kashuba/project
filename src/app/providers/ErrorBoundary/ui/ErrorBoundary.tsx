@@ -21,7 +21,7 @@ class ErrorBoundary
     }
 
     componentDidCatch(error:Error, errorInfo:ErrorInfo) {
-        // You can also log the error to an error reporting service
+        // You can also log the error to an error reporting services
         console.log(error, errorInfo);
     }
 
