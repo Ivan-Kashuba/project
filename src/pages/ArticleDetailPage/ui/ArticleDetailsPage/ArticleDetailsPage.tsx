@@ -15,7 +15,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { articleDetailsCommentsSliceReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { articleDetailsCommentsSliceReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
