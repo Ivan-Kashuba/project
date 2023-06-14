@@ -1,10 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { CSSProperties, useMemo } from 'react';
+import DefaultAvatar from 'shared/assets/icons/defaultAvatar.png';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
     className?: string;
-    src: string;
+    src?: string;
     size?: number
 }
 
@@ -22,7 +23,7 @@ export const Avatar = (props: AvatarProps) => {
         <img
             style={styles}
             className={classNames(cls.Avatar, {}, [className])}
-            src={src}
+            src={src || DefaultAvatar}
             alt="#"
         />
     );
