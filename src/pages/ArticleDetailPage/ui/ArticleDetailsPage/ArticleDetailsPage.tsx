@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -56,18 +57,20 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>{t('Back to list')}</Button>
-                <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Comments')} />
-                <AddCommentForm onSendComment={onSendComment} />
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
-            </div>
-        </DynamicModuleLoader>
+        <Page>
+            <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+                <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                    <Button onClick={onBackToList} theme={ThemeButton.OUTLINE}>{t('Back to list')}</Button>
+                    <ArticleDetails id={id} />
+                    <Text className={cls.commentTitle} title={t('Comments')} />
+                    <AddCommentForm onSendComment={onSendComment} />
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </div>
+            </DynamicModuleLoader>
+        </Page>
     );
 };
 
