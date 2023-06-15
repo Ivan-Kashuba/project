@@ -7,8 +7,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
@@ -41,15 +41,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
-        dispatch(articlesPageAction.initState());
+        dispatch(initArticlesPage());
     });
 
     return (
         <Page onScrollEnd={onLoadNextPart}>
-            <DynamicModuleLoader reducers={reducers}>
+            <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
                 <div className={classNames(cls.ArticlesPage, {}, [className])}>
                     <ArticleViewSelector view={view} onViewClick={onChangeView} />
                     <ArticleList isLoading={isLoading} view={view} articles={articles} />
