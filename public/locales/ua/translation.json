@@ -17,5 +17,13 @@
   "Comments are empty": "Коментарі відсутні",
   "Type comment text": "Введіть текст коментаря",
   "Send": "Відправити",
-  "Read more...": "Читати більше"
+  "Read more...": "Читати більше",
+  "Sort by": "Сортувати за",
+  "Search": "Пошук",
+  "By": "По",
+  "created date": "дата створення",
+  "title": "заголовок",
+  "views": "перегляди",
+  "increasing": "зростанню",
+  "decreasing": "спаданню"
 }
