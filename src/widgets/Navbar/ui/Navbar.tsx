@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -34,6 +37,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>
+                <div>
+                    <Text className={cls.appName} title={t('FTD APP')} />
+                    <AppLink to={RoutePath.article_create}>
+                        {t('Create article')}
+                    </AppLink>
+                </div>
                 <Button
                     theme={ThemeButton.OUTLINE}
                     className={cls.loginButton}
