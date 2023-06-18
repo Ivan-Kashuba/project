@@ -26,3 +26,24 @@ body {
     overflow-y: auto;
     width: calc(100% - var(--sidebar-width));
 }
+
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-inverted-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
