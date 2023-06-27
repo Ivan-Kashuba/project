@@ -12,6 +12,8 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
+export const PAGE_ID = 'PAGE_ID';
+
 interface PageProps {
     className?: string
     children: ReactNode
@@ -36,7 +38,7 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
     }, 500);
 
     return (
-        <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+        <section id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
