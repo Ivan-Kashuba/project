@@ -36,4 +36,19 @@ Normal.args = {
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+    tabs: [
+        {
+            value: 'tab 1',
+            content: 'tab1',
+        }, {
+            value: 'tab 2',
+            content: 'tab2',
+        }, {
+            value: 'tab 3',
+            content: 'tab3',
+        },
+    ],
+    value: 'tab 2',
+    onTabClick: action('onTabClick'),
+};
