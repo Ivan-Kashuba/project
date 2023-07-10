@@ -1,57 +1,81 @@
-import { memo, ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DropDownDirection } from 'shared/types/ui';
 import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
     value: string | number;
     content: ReactNode;
-    disabled?: boolean
+    disabled?: boolean;
 }
-
-type DropDownDirection = 'top' | 'bottom'
 
 interface ListBoxProps {
-    className?: string
-    items?: ListBoxItem[]
-    value?: string
-    defaultValue?: string
-    onChange: (value: string) => void
-    readOnly?: boolean
-    direction?: DropDownDirection
-    label?:string
+    items?: ListBoxItem[];
+    className?: string;
+    value?: string;
+    defaultValue?: string;
+    onChange: (value: string) => void;
+    readonly?: boolean;
+    direction?: DropDownDirection;
+    label?: string;
 }
 
-export const ListBox = memo(({
-    className, items, value, defaultValue, onChange, readOnly, direction = 'bottom', label,
-}: ListBoxProps) => {
-    const optionsClasses = [cls.options, cls[direction]];
+const mapDirectionClass: Record<DropDownDirection, string> = {
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top right': cls.optionsTopRight,
+    'top left': cls.optionsTopLeft,
+};
+
+export function ListBox(props: ListBoxProps) {
+    const {
+        className,
+        items,
+        value,
+        defaultValue,
+        onChange,
+        readonly,
+        direction = 'bottom right',
+        label,
+    } = props;
+
+    const optionsClasses = [mapDirectionClass[direction]];
 
     return (
-        <div className={classNames(cls.container, {}, [className])}>
-            {label && <span className={cls.label}>{`${label}>`}</span>}
-
+        <div className={cls.container}>
+            {label && <div>{`${label}>`}</div>}
             <HListBox
-                disabled={readOnly}
+                disabled={readonly}
                 as="div"
-                className={cls.ListBox}
+                className={classNames(cls.ListBox, {}, [className])}
                 value={value}
                 onChange={onChange}
             >
+                <HListBox.Button className={cls.trigger}>
+                    <Button disabled={readonly}>
+                        {value ?? defaultValue}
+                    </Button>
+                </HListBox.Button>
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
                             value={item.value}
                             disabled={item.disabled}
+                            as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(cls.item, {
-                                    [cls.active]: active,
-                                    [cls.disabled]: item.disabled,
-                                    [cls.selected]: selected,
-                                }, [])}
+                                <li
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [cls.active]: active,
+                                            [cls.selected]: selected,
+                                            [cls.disabled]: item.disabled,
+                                        },
+                                    )}
                                 >
                                     {item.content}
                                 </li>
@@ -59,10 +83,7 @@ export const ListBox = memo(({
                         </HListBox.Option>
                     ))}
                 </HListBox.Options>
-                <HListBox.Button className={cls.trigger}>
-                    <Button disabled={readOnly}>{value ?? defaultValue}</Button>
-                </HListBox.Button>
             </HListBox>
         </div>
     );
-});
+}

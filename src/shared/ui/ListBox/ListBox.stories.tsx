@@ -7,9 +7,6 @@ import { ListBox } from './ListBox';
 const people = [
     { value: 1, content: 'Durward Reynolds', disabled: false },
     { value: 2, content: 'Kenton Towne', disabled: false },
-    { value: 3, content: 'Therese Wunsch', disabled: false },
-    { value: 4, content: 'Benedict Kessler', disabled: true },
-    { value: 5, content: 'Katelyn Rohan', disabled: false },
 ];
 
 export default {
@@ -18,13 +15,22 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ padding: 100 }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-    defaultValue: 'Choose value',
+    defaultValue: 'Choose',
     onChange: (value:string) => {},
     items: people,
 };
@@ -36,4 +42,36 @@ Dark.args = {
     defaultValue: 'Choose value',
     onChange: (value:string) => {},
     items: people,
+};
+
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+    defaultValue: 'Choose value',
+    onChange: (value:string) => {},
+    items: people,
+    direction: 'top left',
+};
+
+export const TopRight = Template.bind({});
+TopRight.args = {
+    defaultValue: 'Choose value',
+    onChange: (value:string) => {},
+    items: people,
+    direction: 'top right',
+};
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+    defaultValue: 'Choose value',
+    onChange: (value:string) => {},
+    items: people,
+    direction: 'bottom left',
+};
+
+export const BottomRight = Template.bind({});
+BottomRight.args = {
+    defaultValue: 'Choose value',
+    onChange: (value:string) => {},
+    items: people,
+    direction: 'bottom right',
 };

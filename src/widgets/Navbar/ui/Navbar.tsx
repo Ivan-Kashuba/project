@@ -8,6 +8,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Text } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -38,18 +40,28 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>
                 <div>
-                    <Text className={cls.appName} title={t('FTD APP')} />
+                    <AppLink to="/">
+                        <Text className={cls.appName} title={t('FTD APP')} />
+                    </AppLink>
                     <AppLink to={RoutePath.article_create}>
                         {t('Create article')}
                     </AppLink>
                 </div>
-                <Button
-                    theme={ThemeButton.OUTLINE}
-                    className={cls.loginButton}
-                    onClick={onLogout}
-                >
-                    {t('Logout')}
-                </Button>
+
+                <Dropdown
+                    items={[
+                        { content: t('Logout'), onClick: onLogout },
+                        { content: t('Profile'), href: RoutePath.profile + authData.id },
+                    ]}
+                    className={cls.dropdown}
+                    trigger={(
+                        <Avatar
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    )}
+                    direction="bottom left"
+                />
             </div>
         );
     }

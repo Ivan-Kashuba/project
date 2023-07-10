@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
 .ListBox {
     position: relative;
 }
@@ -11,44 +16,44 @@
 }
 
 .options {
-    background-color: var(--card-bg);
+    background: var(--card-bg);
     position: absolute;
-    z-index: 1000;
+    z-index: 10000;
     border-radius: 12px;
     box-shadow: 4px 4px 8px var(--card-bg);
 }
 
 .item {
-    padding: 10px 20px;
     cursor: pointer;
+    padding: 10px 20px;
 }
 
+.active,
 .selected {
-    background-color: var(--primary-inverted-color);
-}
-
-.active {
-    background-color: var(--primary-inverted-color);
+    background: var(--primary-inverted-color);
 }
 
 .disabled {
-    cursor: default;
     opacity: 0.5;
+    cursor: default;
 }
 
-.top {
-    bottom: 100%;
-}
-
-.bottom {
+.optionsBottomLeft {
     top: 100%;
+    right: 0;
 }
 
-.label {
-    margin-right: 5px;
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
 }
 
-.container {
-    display: flex;
-    align-items: center;
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    right: 0;
+    bottom: 100%;
 }
