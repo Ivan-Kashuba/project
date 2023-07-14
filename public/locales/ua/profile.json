@@ -16,5 +16,6 @@
   "Invalid age": "Некоректний вік",
   "Invalid region": "Некоректний регін",
   "Data not specified": "Дані не вказані",
-  "Server error on saving": "Серверна помилка при збереженні"
+  "Server error on saving": "Серверна помилка при збереженні",
+  "Profile not found": "Профіль не знайдено"
 }

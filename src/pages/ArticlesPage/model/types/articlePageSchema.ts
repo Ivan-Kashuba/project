@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
 import {
-    Article, ArticleSortField, ArticleView, ArticleType,
+    Article, ArticleSortField, ArticleType, ArticleView,
 } from 'entities/Article';
 import { SortOrder } from 'shared/types';
 

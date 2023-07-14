@@ -3,9 +3,12 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article, ArticleType } from 'entities/Article';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import {
-    getArticlesPageLimit, getArticlesPageNum,
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageLimit,
+    getArticlesPageNum,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
 
 interface fetchArticlesListProps {

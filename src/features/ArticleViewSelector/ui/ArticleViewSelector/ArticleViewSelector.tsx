@@ -1,4 +1,4 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { ArticleView } from 'entities/Article';
 import ListIcon from 'shared/assets/icons/listIcon.svg';

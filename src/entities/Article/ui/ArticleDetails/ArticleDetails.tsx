@@ -16,9 +16,7 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import {
-    ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';

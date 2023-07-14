@@ -1,28 +1,28 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
+import { Text } from 'shared/ui/Text/Text';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-    getProfileData, getProfileReadonly, profileActions, updateProfileData,
-} from 'entities/Profile';
-import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
-import { Text } from '../../../../shared/ui/Text/Text';
-import { Button, ThemeButton } from '../../../../shared/ui/Button/Button';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import cls from './EditableProfileCardHeader.module.scss';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo(({ className }: EditableProfileCardHeaderProps) => {
     const { t } = useTranslation('profile');
 
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
 
-    const { className } = props;
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
@@ -37,9 +37,8 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
-
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <div className={cls.header}>
                 <Text title={t('Profile')} />
                 {canEdit && (
@@ -74,4 +73,4 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
             </div>
         </div>
     );
-};
+});
