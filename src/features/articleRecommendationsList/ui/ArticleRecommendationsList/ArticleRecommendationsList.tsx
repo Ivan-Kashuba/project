@@ -18,7 +18,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         isLoading, data: recommendationArticles, isError,
     } = useGetArticleRecommendationsListQuery(4);
 
-    if (isLoading) {
+    if (isLoading || isError || !recommendationArticles) {
         return null;
     }
 
@@ -40,6 +40,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                 title={t('Recommend')}
             />
             <ArticleList
+                virtualized={false}
                 articles={recommendationArticles}
                 isLoading={isLoading}
                 className={cls.recommendations}

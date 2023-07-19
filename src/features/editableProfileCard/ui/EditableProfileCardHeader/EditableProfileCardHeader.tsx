@@ -37,6 +37,7 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
+
     return (
         <div className={classNames('', {}, [className])}>
             <div className={cls.header}>
@@ -44,7 +45,12 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
                 {canEdit && (
                     <div className={cls.btnWrapper}>
                         {readonly ? (
-                            <Button className={cls.editBtn} theme={ThemeButton.OUTLINE} onClick={onEdit}>
+                            <Button
+                                className={cls.editBtn}
+                                theme={ThemeButton.OUTLINE}
+                                onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditButton"
+                            >
                                 {t('Edit')}
                             </Button>
                         )
@@ -54,6 +60,7 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
                                         className={cls.editBtn}
                                         theme={ThemeButton.OUTLINE_RED}
                                         onClick={onCancelEdit}
+                                        data-testid="EditableProfileCardHeader.CancelButton"
                                     >
                                         {t('Cancel')}
                                     </Button>
@@ -62,6 +69,7 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
                                         className={cls.saveBtn}
                                         theme={ThemeButton.OUTLINE}
                                         onClick={onSave}
+                                        data-testid="EditableProfileCardHeader.SaveButton"
                                     >
                                         {t('Save')}
                                     </Button>
