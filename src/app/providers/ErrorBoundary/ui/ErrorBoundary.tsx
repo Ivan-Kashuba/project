@@ -4,6 +4,7 @@ import { ErrorPage } from 'widgets/PageError';
 interface ErrorBoundaryProps {
     children?: ReactNode;
 }
+
 interface ErrorBoundaryState {
     hasError?: ReactNode;
 }
