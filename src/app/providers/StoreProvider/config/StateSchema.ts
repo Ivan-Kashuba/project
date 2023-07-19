@@ -1,4 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import {
@@ -14,7 +13,6 @@ import { rtkApi } from 'shared/api/rtkApi';
 import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
-    counter: CounterSchema
     user: UserSchema
     scrollRestoration:ScrollRestorationSchema
     [rtkApi.reducerPath]:ReturnType<typeof rtkApi.reducer>
