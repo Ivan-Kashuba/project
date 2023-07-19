@@ -7,6 +7,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { ValidateProfileError } from '../..';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
@@ -52,36 +54,36 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         }
     });
 
-    const onChangeFirstName = useCallback((value) => {
+    const onChangeFirstName = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
     }, [dispatch]);
 
-    const onChangeLastName = useCallback((value) => {
+    const onChangeLastName = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ lastname: value || '' }));
     }, [dispatch]);
 
-    const onChangeUsername = useCallback((value) => {
+    const onChangeUsername = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ username: value || '' }));
     }, [dispatch]);
 
-    const onChangeCity = useCallback((value) => {
+    const onChangeCity = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ city: value || '' }));
     }, [dispatch]);
 
-    const onChangeAge = useCallback((value) => {
+    const onChangeAge = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
     }, [dispatch]);
 
-    const onChangeAvatar = useCallback((value) => {
+    const onChangeAvatar = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ avatar: value || '' }));
     }, [dispatch]);
 
-    const onChangeCurrency = useCallback((value) => {
-        dispatch(profileActions.updateProfile({ currency: value || '' }));
+    const onChangeCurrency = useCallback((value?:Currency) => {
+        dispatch(profileActions.updateProfile({ currency: value }));
     }, [dispatch]);
 
-    const onChangeCountry = useCallback((value) => {
-        dispatch(profileActions.updateProfile({ country: value || '' }));
+    const onChangeCountry = useCallback((value?:Country) => {
+        dispatch(profileActions.updateProfile({ country: value }));
     }, [dispatch]);
 
     return (

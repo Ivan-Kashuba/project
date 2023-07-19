@@ -15,17 +15,12 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
-    const { t } = useTranslation('profile');
 
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
         }
     });
-
-    if (!id) {
-        return <Text title={t('Profile not found')} theme={TextTheme.ERROR} />;
-    }
 
     return (
         <Page>

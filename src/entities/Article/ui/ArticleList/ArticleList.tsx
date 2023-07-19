@@ -81,6 +81,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 scrollTop,
                 onChildScroll,
             }) => (
+                // @ts-ignore
                 <div ref={registerChild} className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                     {virtualized ? (
                         <List

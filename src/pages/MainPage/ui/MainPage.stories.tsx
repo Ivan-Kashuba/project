@@ -11,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
