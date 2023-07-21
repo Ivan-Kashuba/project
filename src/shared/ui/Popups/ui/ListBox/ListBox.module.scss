@@ -3,10 +3,6 @@
     align-items: center;
 }
 
-.ListBox {
-    position: relative;
-}
-
 .trigger {
     background: none;
     border: none;
@@ -31,29 +27,4 @@
 .active,
 .selected {
     background: var(--primary-inverted-color);
-}
-
-.disabled {
-    opacity: 0.5;
-    cursor: default;
-}
-
-.optionsBottomLeft {
-    top: 100%;
-    right: 0;
-}
-
-.optionsBottomRight {
-    top: 100%;
-    left: 0;
-}
-
-.optionsTopRight {
-    bottom: 100%;
-    left: 0;
-}
-
-.optionsTopLeft {
-    right: 0;
-    bottom: 100%;
 }

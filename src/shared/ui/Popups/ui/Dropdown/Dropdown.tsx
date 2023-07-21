@@ -2,8 +2,10 @@ import { Fragment, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/const';
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
+import popupCls from '../../styles/Popup.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean
@@ -20,13 +22,6 @@ interface DropdownProps {
     direction?: DropDownDirection
 }
 
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-};
-
 export const Dropdown = memo((props: DropdownProps) => {
     const {
         className, items, trigger, direction = 'bottom right',
@@ -35,8 +30,8 @@ export const Dropdown = memo((props: DropdownProps) => {
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <Menu.Button className={cls.button}>{trigger}</Menu.Button>
+        <Menu as="div" className={classNames(cls.Dropdown, {}, [className, popupCls.Popup])}>
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((item, index) => {
                     const content = ({ active }: {active: boolean}) => (
@@ -44,7 +39,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={classNames(cls.item, { [cls.active]: active })}
+                            className={classNames(cls.item, { [popupCls.active]: active }, [])}
                         >
                             {item.content}
                         </button>
