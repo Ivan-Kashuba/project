@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
     MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
-import { useInfinitiveScroll } from 'shared/lib/hooks/useInfinitiveScroll/useInfinitiveScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollRestorationScrollByPath, ScrollRestorationActions } from 'features/ScrollRestoration';
 import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInfinitiveScroll } from '@/shared/lib/hooks/useInfinitiveScroll/useInfinitiveScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getScrollRestorationScrollByPath, ScrollRestorationActions } from '@/features/ScrollRestoration';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
 export const PAGE_ID = 'PAGE_ID';

@@ -1,8 +1,8 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { InputHTMLAttributes, memo, useState } from 'react';
-import ErrorIcon from 'shared/assets/icons/errorIcon.svg';
-import OpenEyeIcon from 'shared/assets/icons/openEyeIcon.svg';
-import CloseEyeIcon from 'shared/assets/icons/closeEyeIcon.svg';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import ErrorIcon from '@/shared/assets/icons/errorIcon.svg';
+import OpenEyeIcon from '@/shared/assets/icons/openEyeIcon.svg';
+import CloseEyeIcon from '@/shared/assets/icons/closeEyeIcon.svg';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>

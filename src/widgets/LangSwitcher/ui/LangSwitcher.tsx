@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import UAIcon from 'shared/assets/icons/ua-flag.svg';
-import USAIcon from 'shared/assets/icons/usa-flag.svg';
 import React, { memo } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import UAIcon from '@/shared/assets/icons/ua-flag.svg';
+import USAIcon from '@/shared/assets/icons/usa-flag.svg';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 
 interface LangSwitcherProps {
   className?: string

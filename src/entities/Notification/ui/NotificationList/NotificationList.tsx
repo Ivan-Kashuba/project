@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';

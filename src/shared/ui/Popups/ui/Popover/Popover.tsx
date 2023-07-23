@@ -1,7 +1,7 @@
 import { memo, ReactNode } from 'react';
 import { Popover as HeadlessPopover } from '@headlessui/react';
-import { DropDownDirection } from 'shared/types/ui';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { DropDownDirection } from '@/shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { mapDirectionClass } from '../../styles/const';
 import cls from './Popover.module.scss';
 import popupCls from '../../styles/Popup.module.scss';

@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { ArticleList } from 'entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 
@@ -40,7 +40,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                 title={t('Recommend')}
             />
             <ArticleList
-                virtualized={false}
                 articles={recommendationArticles}
                 isLoading={isLoading}
                 className={cls.recommendations}

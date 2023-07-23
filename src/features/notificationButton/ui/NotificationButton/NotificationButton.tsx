@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo, useCallback, useState } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from 'shared/assets/icons/notification-icon.svg';
-import { NotificationList } from 'entities/Notification';
-import { Popover } from 'shared/ui/Popups';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import { useDetectDevice } from 'shared/lib/hooks/useDevice/useDevice';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import NotificationIcon from '@/shared/assets/icons/notification-icon.svg';
+import { NotificationList } from '@/entities/Notification';
+import { Popover } from '@/shared/ui/Popups';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { useDetectDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -35,7 +35,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             <Icon Svg={NotificationIcon} className={cls.notificationIcon} />
         </Button>
     );
-    console.log('isMobile:', isMobile);
+
     return (
         <div>
             {isMobile ? (
