@@ -4,8 +4,7 @@ import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import i18nForTest from '@/shared/config/i18n/i18nForTest';
-import { StoreProvider } from '@/app/providers/StoreProvider';
-import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 export interface ComponentRenderOptions {
     route?:string;
