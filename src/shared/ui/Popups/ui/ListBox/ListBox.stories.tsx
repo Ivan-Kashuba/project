@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ListBox } from './ListBox';
+import { Theme } from '@/shared/constants/theme';
 
 const people = [
     { value: 1, content: 'Durward Reynolds', disabled: false },
