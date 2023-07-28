@@ -6,7 +6,7 @@ import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import ArrowLeft from '@/shared/assets/icons/arrow-left.svg';
 import ArrowRight from '@/shared/assets/icons/arrow-right.svg';
 import { LangSwitcher } from '@/features/LangSwitcher';
-import { getSidebarItems } from '../../model/selectors/getSeidebatItems';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';

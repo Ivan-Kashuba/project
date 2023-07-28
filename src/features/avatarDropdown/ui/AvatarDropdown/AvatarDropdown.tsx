@@ -8,7 +8,7 @@ import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -36,8 +36,8 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
         <Dropdown
             className={classNames('', {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{ content: t('Admin'), href: RoutePath.admin_panel }] : []),
-                { content: t('Profile'), href: RoutePath.profile + authData.id },
+                ...(isAdminPanelAvailable ? [{ content: t('Admin'), href: getRouteAdmin() }] : []),
+                { content: t('Profile'), href: getRouteProfile(authData.id) },
                 { content: t('Logout'), onClick: onLogout },
             ]}
             trigger={(

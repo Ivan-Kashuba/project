@@ -10,7 +10,7 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleCreate } from '@/shared/constants/router';
 
 interface NavbarProps {
   className?: string;
@@ -38,7 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     <AppLink to="/">
                         <Text className={cls.appName} title={t('FTD APP')} />
                     </AppLink>
-                    <AppLink to={RoutePath.article_create}>
+                    <AppLink to={getRouteArticleCreate()}>
                         {t('Create article')}
                     </AppLink>
                 </div>
