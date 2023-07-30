@@ -20,7 +20,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     });
 
     return (
-        <Page>
+        <Page data-testid="ProfilePage">
             <div className={classNames('', {}, [className])}>
                 <EditableProfileCard id={id} />
             </div>
