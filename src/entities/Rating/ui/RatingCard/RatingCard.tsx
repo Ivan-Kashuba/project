@@ -59,12 +59,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <div className={cls.modalContainer}>
             <Text title={feedbackTitle} />
-            <Input value={feedback} onChange={setFeedback} placeholder={t('Type your feedback')} />
+            <Input data-testid="RatingCard.Input" value={feedback} onChange={setFeedback} placeholder={t('Type your feedback')} />
             <div className={cls.buttons}>
-                <Button onClick={declineHandle} theme={ThemeButton.OUTLINE_RED}>
+                <Button data-testid="RatingCard.Close" onClick={declineHandle} theme={ThemeButton.OUTLINE_RED}>
                     {t('Cancel')}
                 </Button>
-                <Button onClick={acceptHandle} theme={ThemeButton.OUTLINE}>
+                <Button data-testid="RatingCard.Send" onClick={acceptHandle} theme={ThemeButton.OUTLINE}>
                     {t('Send')}
                 </Button>
             </div>
@@ -72,7 +72,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card data-testid="RatingCard" className={classNames('', {}, [className])}>
             <div className={cls.container}>
                 <Text title={starsCount ? t('Thanks for feedback') : title} />
                 <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />

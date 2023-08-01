@@ -1,29 +1,30 @@
 import { selectByTestId } from '../../helpers/selectByTestId';
 
-describe('Routing', () => {
-    describe('User not authenticated', () => {
-        it('Open main page', () => {
+describe('Роутинг', () => {
+    describe('Пользователь НЕ авторизован', () => {
+        it('Переход на главную страницу', () => {
             cy.visit('/');
             cy.get(selectByTestId('MainPage')).should('exist');
         });
-        it('Open profile page', () => {
+        it('Переход открывает страницу профиля', () => {
             cy.visit('/profile/1');
             cy.get(selectByTestId('MainPage')).should('exist');
         });
-        it('Open not existed route', () => {
-            cy.visit('/not-valid-route');
-            cy.get(selectByTestId('NotFound')).should('exist');
+        it('Переход открывает несуществующий маршрут ', () => {
+            cy.visit('/fasfasfasf');
+            cy.get(selectByTestId('NotFoundPage')).should('exist');
         });
-    }); describe('User authenticated', () => {
+    });
+    describe('Пользователь авторизован', () => {
         beforeEach(() => {
-            cy.login('admin', '123');
+            cy.login();
         });
-
-        it('Open profile page', () => {
+        it('Переход открывает страницу профиля', () => {
             cy.visit('/profile/1');
             cy.get(selectByTestId('ProfilePage')).should('exist');
         });
-        it('Open articles page', () => {
+
+        it('Переход открывает страницу со списком статей', () => {
             cy.visit('/articles');
             cy.get(selectByTestId('ArticlesPage')).should('exist');
         });

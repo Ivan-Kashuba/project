@@ -42,7 +42,7 @@ export const ArticleListItem = memo(({
         const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])} data-testid="ArticleListItem">
                 <Card>
                     <div className={cls.header}>
                         <Avatar src={article.user.avatar} size={30} />
@@ -69,6 +69,7 @@ export const ArticleListItem = memo(({
 
     return (
         <AppLink
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}

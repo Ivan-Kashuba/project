@@ -33,7 +33,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     }
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div data-testid="ArticleRecommendationsList" className={classNames('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 className={cls.commentTitle}
