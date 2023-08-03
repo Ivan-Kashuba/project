@@ -12,15 +12,13 @@ export default {
     },
 } as ComponentMeta<typeof ErrorPage>;
 
-const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args} />;
+const Template: ComponentStory<typeof ErrorPage> = (args) => (
+    <ErrorPage {...args} />
+);
 
 export const Light = Template.bind({});
-Light.args = {
-
-};
+Light.args = {};
 Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {
-
-};
+Dark.args = {};

@@ -12,18 +12,18 @@ import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile,
-    isLoading?: boolean,
-    readonly?: boolean,
-    error?: string,
-    onChangeFirstName?: (value?: string) => void,
-    onChangeLastName?: (value?: string) => void,
-    onChangeCity?: (value?: string) => void,
-    onChangeAge?: (value?: string) => void,
-    onChangeUsername?: (value?: string) => void,
-    onChangeAvatar?: (value?: string) => void,
-    onChangeCurrency?: (currency?: Currency) => void,
-    onChangeCountry?: (country?: Country) => void,
+    data?: Profile;
+    isLoading?: boolean;
+    readonly?: boolean;
+    error?: string;
+    onChangeFirstName?: (value?: string) => void;
+    onChangeLastName?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency?: Currency) => void;
+    onChangeCountry?: (country?: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -51,13 +51,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
         }
     };
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.editing]: !readonly,
     };
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <Loader />
             </div>
         );
@@ -65,7 +70,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Something went wrong during profile loading')}
@@ -79,7 +89,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
-                {data?.avatar && <Avatar src={data.avatar || DefaultAvatar} size={120} /> }
+                {data?.avatar && (
+                    <Avatar src={data.avatar || DefaultAvatar} size={120} />
+                )}
                 <div className={cls.form}>
                     <Input
                         label={t('Your name')}
@@ -151,9 +163,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         onChange={onChangeCountry}
                         readOnly={readonly}
                     />
-
                 </div>
-
             </div>
         </div>
     );

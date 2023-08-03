@@ -9,19 +9,31 @@ interface ArticleTypeTabsProps {
     onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo(({ className, value, onChangeType }: ArticleTypeTabsProps) => {
-    const typeTabs = useMemo(() => Object.entries(ArticleType).map((cur) => ({ value: cur[0], content: cur[1] })), []);
+export const ArticleTypeTabs = memo(
+    ({ className, value, onChangeType }: ArticleTypeTabsProps) => {
+        const typeTabs = useMemo(
+            () =>
+                Object.entries(ArticleType).map((cur) => ({
+                    value: cur[0],
+                    content: cur[1],
+                })),
+            [],
+        );
 
-    const onTabClick = useCallback((tab: TabItem) => {
-        onChangeType(tab.value as ArticleType);
-    }, [onChangeType]);
+        const onTabClick = useCallback(
+            (tab: TabItem) => {
+                onChangeType(tab.value as ArticleType);
+            },
+            [onChangeType],
+        );
 
-    return (
-        <Tabs
-            tabs={typeTabs}
-            value={value}
-            onTabClick={onTabClick}
-            className={classNames('', {}, [className])}
-        />
-    );
-});
+        return (
+            <Tabs
+                tabs={typeTabs}
+                value={value}
+                onTabClick={onTabClick}
+                className={classNames('', {}, [className])}
+            />
+        );
+    },
+);

@@ -12,13 +12,14 @@ export default {
     },
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
+const Template: ComponentStory<typeof Skeleton> = (args) => (
+    <Skeleton {...args} />
+);
 
 export const NormalLight = Template.bind({});
 NormalLight.args = {
     width: '100%',
     height: 200,
-
 };
 NormalLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
@@ -34,7 +35,6 @@ export const NormalDark = Template.bind({});
 NormalDark.args = {
     width: '100%',
     height: 200,
-
 };
 
 export const CircleDark = Template.bind({});

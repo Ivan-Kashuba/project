@@ -2,25 +2,29 @@ import { rtkApi } from '@/shared/api/rtkApi';
 import { Rating } from '@/entities/Rating';
 
 interface ArticleRatingResponse extends Rating {
-    id: string
-    userId: string
-    articleId: string
+    id: string;
+    userId: string;
+    articleId: string;
 }
 
 interface ArticleRatingInputParams {
-    userId: string
-    articleId: string
+    userId: string;
+    articleId: string;
 }
 
-type RateArticleArg = Rating & ArticleRatingInputParams
+type RateArticleArg = Rating & ArticleRatingInputParams;
 
 const articleRatingApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        getArticleRating: build.query<ArticleRatingResponse[], ArticleRatingInputParams >({
+        getArticleRating: build.query<
+            ArticleRatingResponse[],
+            ArticleRatingInputParams
+        >({
             query: ({ articleId, userId }) => ({
                 url: '/article-ratings',
                 params: {
-                    userId, articleId,
+                    userId,
+                    articleId,
                 },
             }),
         }),

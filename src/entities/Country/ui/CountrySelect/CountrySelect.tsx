@@ -8,24 +8,29 @@ interface CountrySelectProps {
     className?: string;
     value?: Country;
     onChange?: (country: Country) => void;
-    readOnly?:boolean
+    readOnly?: boolean;
 }
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
     const { t } = useTranslation();
 
-    const {
-        value, className, onChange, readOnly,
-    } = props;
+    const { value, className, onChange, readOnly } = props;
 
-    const CountriesOptions = useMemo(() => Object.entries(Country).map((cur) => {
-        const option = { value: cur[0], content: cur[1] };
-        return option;
-    }), []);
+    const CountriesOptions = useMemo(
+        () =>
+            Object.entries(Country).map((cur) => {
+                const option = { value: cur[0], content: cur[1] };
+                return option;
+            }),
+        [],
+    );
 
-    const onChangeHandler = useCallback((value:string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

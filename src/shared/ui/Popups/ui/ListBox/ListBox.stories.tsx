@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof ListBox> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {
     defaultValue: 'Choose',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
 };
 
@@ -40,14 +40,14 @@ Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const Dark = Template.bind({});
 Dark.args = {
     defaultValue: 'Choose value',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
 };
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
     defaultValue: 'Choose value',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
     direction: 'top left',
 };
@@ -55,7 +55,7 @@ TopLeft.args = {
 export const TopRight = Template.bind({});
 TopRight.args = {
     defaultValue: 'Choose value',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
     direction: 'top right',
 };
@@ -63,7 +63,7 @@ TopRight.args = {
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
     defaultValue: 'Choose value',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
     direction: 'bottom left',
 };
@@ -71,7 +71,7 @@ BottomLeft.args = {
 export const BottomRight = Template.bind({});
 BottomRight.args = {
     defaultValue: 'Choose value',
-    onChange: (value:string) => {},
+    onChange: (value: string) => {},
     items: people,
     direction: 'bottom right',
 };

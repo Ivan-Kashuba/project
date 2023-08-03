@@ -1,38 +1,38 @@
 {
-  "Admin": "Admin",
-  "Admin panel": "Admin panel",
-  "By": "By",
-  "Comments": "Comments",
-  "Comments are empty": "Comments are empty",
-  "Create article": "Create article",
-  "Current article doesn't found": "Current article doesn't found",
-  "FTD APP": "FTD APP",
-  "Login": "Login",
-  "Login Form": "Login Form",
-  "Logout": "Logout",
-  "Page not found": "Page not found",
-  "Password": "Password",
-  "Profile": "Profile",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  "Search": "Search",
-  "Select country": "Select country",
-  "Select currency": "Select currency",
-  "Send": "Send",
-  "Some unexpected error": "Some unexpected error",
-  "Sort by": "Sort by",
-  "Type comment text": "Type comment text",
-  "Update page": "Update page",
-  "Username": "Username",
-  "You have no access to this page": "You have no access to this page",
-  "created date": "created date",
-  "decreasing": "decreasing",
-  "increasing": "increasing",
-  "title": "title",
-  "views": "views"
+    "Admin": "Admin",
+    "Admin panel": "Admin panel",
+    "By": "By",
+    "Comments": "Comments",
+    "Comments are empty": "Comments are empty",
+    "Create article": "Create article",
+    "Current article doesn't found": "Current article doesn't found",
+    "FTD APP": "FTD APP",
+    "Login": "Login",
+    "Login Form": "Login Form",
+    "Logout": "Logout",
+    "Page not found": "Page not found",
+    "Password": "Password",
+    "Profile": "Profile",
+    "Read more": {
+        "": {
+            "": {
+                "": ""
+            }
+        }
+    },
+    "Search": "Search",
+    "Select country": "Select country",
+    "Select currency": "Select currency",
+    "Send": "Send",
+    "Some unexpected error": "Some unexpected error",
+    "Sort by": "Sort by",
+    "Type comment text": "Type comment text",
+    "Update page": "Update page",
+    "Username": "Username",
+    "You have no access to this page": "You have no access to this page",
+    "created date": "created date",
+    "decreasing": "decreasing",
+    "increasing": "increasing",
+    "title": "title",
+    "views": "views"
 }

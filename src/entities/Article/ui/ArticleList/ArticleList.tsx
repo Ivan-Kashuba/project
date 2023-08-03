@@ -9,25 +9,32 @@ import { Article } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-    className?: string
-    articles: Article[]
-    isLoading?: boolean
-    view?: ArticleView
-    target?: HTMLAttributeAnchorTarget
+    className?: string;
+    articles: Article[];
+    isLoading?: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((item, index) => (
-    <ArticleListItemSkeleton
-        className={cls.card}
-        key={index}
-        view={view}
-    />
-));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                key={index}
+                view={view}
+            />
+        ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation('article');
     const {
-        className, articles, isLoading, view = ArticleView.SMALL, target,
+        className,
+        articles,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
     } = props;
 
     if (!isLoading && !articles.length) {
@@ -39,8 +46,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])} data-testid="ArticleList">
-
+        <div
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            data-testid="ArticleList"
+        >
             {articles.map((item) => (
                 <ArticleListItem
                     article={item}

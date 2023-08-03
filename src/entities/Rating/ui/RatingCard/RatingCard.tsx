@@ -12,18 +12,24 @@ import { useDetectDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface RatingCardProps {
-    className?: string
-    title?: string
-    feedbackTitle?: string
-    hasFeedback?: boolean
-    onCancel?: (startCount: number) => void
-    onAccept?: (startCount: number, feedback?: string) => void
-    rate?: number
+    className?: string;
+    title?: string;
+    feedbackTitle?: string;
+    hasFeedback?: boolean;
+    onCancel?: (startCount: number) => void;
+    onAccept?: (startCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, onCancel, onAccept, title, feedbackTitle, hasFeedback, rate = 0,
+        className,
+        onCancel,
+        onAccept,
+        title,
+        feedbackTitle,
+        hasFeedback,
+        rate = 0,
     } = props;
 
     const isMobile = useDetectDevice();
@@ -33,14 +39,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpened(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpened(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpened(false);
@@ -59,12 +68,25 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <div className={cls.modalContainer}>
             <Text title={feedbackTitle} />
-            <Input data-testid="RatingCard.Input" value={feedback} onChange={setFeedback} placeholder={t('Type your feedback')} />
+            <Input
+                data-testid="RatingCard.Input"
+                value={feedback}
+                onChange={setFeedback}
+                placeholder={t('Type your feedback')}
+            />
             <div className={cls.buttons}>
-                <Button data-testid="RatingCard.Close" onClick={declineHandle} theme={ThemeButton.OUTLINE_RED}>
+                <Button
+                    data-testid="RatingCard.Close"
+                    onClick={declineHandle}
+                    theme={ThemeButton.OUTLINE_RED}
+                >
                     {t('Cancel')}
                 </Button>
-                <Button data-testid="RatingCard.Send" onClick={acceptHandle} theme={ThemeButton.OUTLINE}>
+                <Button
+                    data-testid="RatingCard.Send"
+                    onClick={acceptHandle}
+                    theme={ThemeButton.OUTLINE}
+                >
                     {t('Send')}
                 </Button>
             </div>
@@ -72,10 +94,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card data-testid="RatingCard" className={classNames('', {}, [className])}>
+        <Card
+            data-testid="RatingCard"
+            className={classNames('', {}, [className])}
+        >
             <div className={cls.container}>
                 <Text title={starsCount ? t('Thanks for feedback') : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </div>
             {hasFeedback && !isMobile && (
                 <Modal isOpen={isModalOpened} onClose={onCloseModal} lazy>

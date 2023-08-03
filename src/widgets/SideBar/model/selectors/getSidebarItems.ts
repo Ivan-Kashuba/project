@@ -6,7 +6,10 @@ import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticlesIcon from '@/shared/assets/icons/newspaperIcon.svg';
 import { SideBarItemType } from '../types/sidebar';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/constants/router';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {

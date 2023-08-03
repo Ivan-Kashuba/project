@@ -9,7 +9,7 @@ import { Comment } from '../model/types/comment';
 interface CommentListProps {
     className?: string;
     isLoading?: boolean;
-    comments?: Comment[]
+    comments?: Comment[];
 }
 
 export const CommentList = memo((props: CommentListProps) => {
@@ -27,14 +27,18 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
-            {comments?.length ? comments.map((comment) => (
-                <CommentCard
-                    className={cls.comment}
-                    comment={comment}
-                    isLoading={isLoading}
-                    key={comment.id}
-                />
-            )) : <Text title={t('Comments are empty')} />}
+            {comments?.length ? (
+                comments.map((comment) => (
+                    <CommentCard
+                        className={cls.comment}
+                        comment={comment}
+                        isLoading={isLoading}
+                        key={comment.id}
+                    />
+                ))
+            ) : (
+                <Text title={t('Comments are empty')} />
+            )}
         </div>
     );
 });

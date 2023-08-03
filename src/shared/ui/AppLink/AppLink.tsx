@@ -8,10 +8,8 @@ interface AppLinkProps extends LinkProps {
     children: ReactNode;
 }
 
-export const AppLink = memo((props:AppLinkProps) => {
-    const {
-        to, className, children, ...otherProps
-    } = props;
+export const AppLink = memo((props: AppLinkProps) => {
+    const { to, className, children, ...otherProps } = props;
     return (
         <Link
             to={to}

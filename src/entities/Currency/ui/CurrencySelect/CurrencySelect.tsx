@@ -8,23 +8,28 @@ interface CurrencySelectProps {
     className?: string;
     value?: Currency;
     onChange?: (value: Currency) => void;
-    readOnly?:boolean
+    readOnly?: boolean;
 }
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const { t } = useTranslation();
-    const {
-        value, className, onChange, readOnly,
-    } = props;
+    const { value, className, onChange, readOnly } = props;
 
-    const CurrencyOptions = useMemo(() => Object.entries(Currency).map((cur) => {
-        const option = { value: cur[0], content: cur[1] };
-        return option;
-    }), []);
+    const CurrencyOptions = useMemo(
+        () =>
+            Object.entries(Currency).map((cur) => {
+                const option = { value: cur[0], content: cur[1] };
+                return option;
+            }),
+        [],
+    );
 
-    const onChangeHandler = useCallback((value:string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

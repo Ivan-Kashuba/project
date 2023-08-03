@@ -21,10 +21,12 @@ Normal.args = {
         {
             value: 'tab 1',
             content: 'tab1',
-        }, {
+        },
+        {
             value: 'tab 2',
             content: 'tab2',
-        }, {
+        },
+        {
             value: 'tab 3',
             content: 'tab3',
         },
@@ -41,10 +43,12 @@ Dark.args = {
         {
             value: 'tab 1',
             content: 'tab1',
-        }, {
+        },
+        {
             value: 'tab 2',
             content: 'tab2',
-        }, {
+        },
+        {
             value: 'tab 3',
             content: 'tab3',
         },

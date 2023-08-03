@@ -6,7 +6,7 @@ import USAIcon from '@/shared/assets/icons/usa-flag.svg';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 
 interface LangSwitcherProps {
-  className?: string
+    className?: string;
 }
 
 export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
@@ -22,13 +22,11 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
             onClick={toggleLanguage}
             className={classNames('', {}, [className])}
         >
-            {i18n.language === 'en'
-                ? (
-                    <UAIcon width={30} />
-                )
-                : (
-                    <USAIcon width={30} />
-                )}
+            {i18n.language === 'en' ? (
+                <UAIcon width={30} />
+            ) : (
+                <USAIcon width={30} />
+            )}
         </Button>
     );
 });

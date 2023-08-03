@@ -10,7 +10,7 @@ import cls from './ArticleViewSelector.module.scss';
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
-    onViewClick: (newView:ArticleView) => void;
+    onViewClick: (newView: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -24,26 +24,34 @@ const viewTypes = [
     },
 ];
 
-export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-    const onClick = (newView:ArticleView) => () => {
-        onViewClick?.(newView);
-    };
+export const ArticleViewSelector = memo(
+    ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+        const onClick = (newView: ArticleView) => () => {
+            onViewClick?.(newView);
+        };
 
-    return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-            {viewTypes.map((viewType) => (
-                <Button
-                    theme={ThemeButton.CLEAR}
-                    onClick={onClick(viewType.view)}
-                    className={cls.button}
-                    key={viewType.view}
-                >
-                    <Icon
-                        Svg={viewType.icon}
-                        className={classNames(cls.icon, { [cls.selected]: viewType.view === view }, [className])}
-                    />
-                </Button>
-            ))}
-        </div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.ArticleViewSelector, {}, [className])}
+            >
+                {viewTypes.map((viewType) => (
+                    <Button
+                        theme={ThemeButton.CLEAR}
+                        onClick={onClick(viewType.view)}
+                        className={cls.button}
+                        key={viewType.view}
+                    >
+                        <Icon
+                            Svg={viewType.icon}
+                            className={classNames(
+                                cls.icon,
+                                { [cls.selected]: viewType.view === view },
+                                [className],
+                            )}
+                        />
+                    </Button>
+                ))}
+            </div>
+        );
+    },
+);

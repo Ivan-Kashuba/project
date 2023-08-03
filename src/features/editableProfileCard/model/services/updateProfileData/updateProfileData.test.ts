@@ -13,7 +13,6 @@ const data = {
     currency: Currency.UAH,
     city: 'Lviv',
     avatar: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png',
-
 };
 
 describe('updateProfileData.test', () => {
@@ -23,9 +22,11 @@ describe('updateProfileData.test', () => {
                 form: data,
             },
         });
-        thunk.api.put.mockReturnValue(Promise.resolve({
-            data,
-        }));
+        thunk.api.put.mockReturnValue(
+            Promise.resolve({
+                data,
+            }),
+        );
 
         const result = await thunk.callThunk();
 
@@ -41,9 +42,11 @@ describe('updateProfileData.test', () => {
             },
         });
 
-        thunk.api.put.mockReturnValue(Promise.resolve({
-            status: 403,
-        }));
+        thunk.api.put.mockReturnValue(
+            Promise.resolve({
+                status: 403,
+            }),
+        );
 
         const result = await thunk.callThunk();
 
@@ -61,6 +64,8 @@ describe('updateProfileData.test', () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+        expect(result.payload).toEqual([
+            ValidateProfileError.INCORRECT_USER_DATA,
+        ]);
     });
 });

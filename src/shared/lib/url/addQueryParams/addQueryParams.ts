@@ -1,4 +1,4 @@
-export const getQueryParams = (params:OptionalRecord<string, string>) => {
+export const getQueryParams = (params: OptionalRecord<string, string>) => {
     const searchParams = new URLSearchParams(window.location.search);
     Object.entries(params).forEach(([name, value]) => {
         if (value !== undefined) {
@@ -9,6 +9,6 @@ export const getQueryParams = (params:OptionalRecord<string, string>) => {
     return `?${searchParams.toString()}`;
 };
 
-export function addQueryParams(params:Record<string, string>) {
+export function addQueryParams(params: Record<string, string>) {
     window.history.pushState(null, '', getQueryParams(params));
 }

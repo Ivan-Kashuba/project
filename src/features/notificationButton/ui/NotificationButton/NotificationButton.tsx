@@ -27,10 +27,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }, []);
 
     const trigger = (
-        <Button
-            onClick={onOpenDrawer}
-            theme={ThemeButton.CLEAR}
-        >
+        <Button onClick={onOpenDrawer} theme={ThemeButton.CLEAR}>
             <Icon Svg={NotificationIcon} className={cls.notificationIcon} />
         </Button>
     );
@@ -48,12 +45,13 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                 <Popover
                     trigger={trigger}
                     direction="bottom left"
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
                 >
                     <NotificationList className={cls.notifications} />
                 </Popover>
             )}
-
         </div>
     );
 });

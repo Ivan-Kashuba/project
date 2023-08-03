@@ -10,41 +10,48 @@ interface ArticleRecommendationsListProps {
     className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const { className } = props;
-    const { t } = useTranslation('article');
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className } = props;
+        const { t } = useTranslation('article');
 
-    const {
-        isLoading, data: recommendationArticles, isError,
-    } = useGetArticleRecommendationsListQuery(4);
+        const {
+            isLoading,
+            data: recommendationArticles,
+            isError,
+        } = useGetArticleRecommendationsListQuery(4);
 
-    if (isLoading || isError || !recommendationArticles) {
-        return null;
-    }
+        if (isLoading || isError || !recommendationArticles) {
+            return null;
+        }
 
-    if (isError) {
+        if (isError) {
+            return (
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={t('Something went wrong')}
+                    text={t("Can't load recommendations")}
+                />
+            );
+        }
+
         return (
-            <Text
-                theme={TextTheme.ERROR}
-                title={t('Something went wrong')}
-                text={t("Can't load recommendations")}
-            />
+            <div
+                data-testid="ArticleRecommendationsList"
+                className={classNames('', {}, [className])}
+            >
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('Recommend')}
+                />
+                <ArticleList
+                    articles={recommendationArticles}
+                    isLoading={isLoading}
+                    className={cls.recommendations}
+                    target="_blank"
+                />
+            </div>
         );
-    }
-
-    return (
-        <div data-testid="ArticleRecommendationsList" className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                className={cls.commentTitle}
-                title={t('Recommend')}
-            />
-            <ArticleList
-                articles={recommendationArticles}
-                isLoading={isLoading}
-                className={cls.recommendations}
-                target="_blank"
-            />
-        </div>
-    );
-});
+    },
+);

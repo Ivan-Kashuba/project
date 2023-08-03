@@ -13,14 +13,14 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => (
-    <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '600px',
-    }}
+    <div
+        style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '600px',
+        }}
     >
-
         <Input {...args} />
     </div>
 );
@@ -55,7 +55,6 @@ export const LightPasswordInput = Template.bind({});
 LightPasswordInput.args = {
     label: 'Label',
     isPassword: true,
-
 };
 
 LightPasswordInput.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -74,14 +73,12 @@ export const DarkInput = Template.bind({});
 DarkInput.args = {
     label: 'Label',
     value: 'Text',
-
 };
 
 export const DarkInputWithPlaceholder = Template.bind({});
 DarkInputWithPlaceholder.args = {
     label: 'Label',
     placeholder: 'Placeholder',
-
 };
 
 export const DarkInputWithErrors = Template.bind({});
@@ -90,14 +87,12 @@ DarkInputWithErrors.args = {
     label: 'Label',
     isError: true,
     errorText: 'Some Error',
-
 };
 
 export const DarkPasswordInput = Template.bind({});
 DarkPasswordInput.args = {
     label: 'Label',
     isPassword: true,
-
 };
 
 export const DarkPasswordInputWithErrors = Template.bind({});

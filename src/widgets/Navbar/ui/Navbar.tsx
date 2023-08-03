@@ -13,7 +13,7 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/constants/router';
 
 interface NavbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -59,7 +59,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t('Login')}
             </Button>
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </div>
     );
 });

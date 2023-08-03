@@ -5,17 +5,20 @@ import OpenEyeIcon from '@/shared/assets/icons/openEyeIcon.svg';
 import CloseEyeIcon from '@/shared/assets/icons/closeEyeIcon.svg';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
-    isPassword?: boolean
-    isError?: boolean,
-    errorText?: string,
+    isPassword?: boolean;
+    isError?: boolean;
+    errorText?: string;
     label?: string;
-    readOnly?: boolean
+    readOnly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -44,7 +47,7 @@ export const Input = memo((props: InputProps) => {
         setShowPassword((prev) => !prev);
     };
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.readonly]: readOnly,
     };
 
@@ -57,7 +60,9 @@ export const Input = memo((props: InputProps) => {
             )}
 
             <input
-                type={!isPassword ? type : `${showPassword ? 'text' : 'password'}`}
+                type={
+                    !isPassword ? type : `${showPassword ? 'text' : 'password'}`
+                }
                 placeholder={placeholder}
                 name={name}
                 value={value}
@@ -73,19 +78,13 @@ export const Input = memo((props: InputProps) => {
                 </div>
             )}
             {isPassword && (
-                <div
-                    className={cls.passwordIcon}
-                    onClick={showPasswordToggle}
-                >
+                <div className={cls.passwordIcon} onClick={showPasswordToggle}>
                     {showPassword ? <CloseEyeIcon /> : <OpenEyeIcon />}
                 </div>
             )}
-            {isError && errorText
-                && (
-                    <div className={cls.errorText}>
-                        {errorText}
-                    </div>
-                )}
+            {isError && errorText && (
+                <div className={cls.errorText}>{errorText}</div>
+            )}
         </div>
     );
 });

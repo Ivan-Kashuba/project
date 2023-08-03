@@ -12,10 +12,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const article : Article = {
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -109,22 +108,29 @@ const article : Article = {
     ],
 };
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
 
-Normal.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 
-Dark.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Dark.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

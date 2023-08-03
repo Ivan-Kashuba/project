@@ -9,19 +9,21 @@ interface ErrorBoundaryState {
     hasError?: ReactNode;
 }
 
-class ErrorBoundary
-    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-    constructor(props:ErrorBoundaryProps) {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
+    constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error:Error) {
+    static getDerivedStateFromError(error: Error) {
         // Update state so the next render will show the fallback ScrollRestoration.
         return { hasError: true };
     }
 
-    componentDidCatch(error:Error, errorInfo:ErrorInfo) {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         // You can also log the error to an error reporting services
         console.log(error, errorInfo);
     }

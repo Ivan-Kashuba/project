@@ -26,7 +26,9 @@ export const NotificationList = memo(({ className }: NotificationProps) => {
 
     return (
         <div className={classNames(cls.Notification, {}, [className])}>
-            {notifications?.map((n) => <NotificationItem key={n.id} data={n} />)}
+            {notifications?.map((n) => (
+                <NotificationItem key={n.id} data={n} />
+            ))}
         </div>
     );
 });

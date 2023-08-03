@@ -12,7 +12,7 @@ import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
 interface SidebarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -24,13 +24,17 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     const sidebarItemsList = useSelector(getSidebarItems);
 
-    const itemsList = useMemo(() => sidebarItemsList.map((item) => (
-        <SidebarItem
-            item={item}
-            key={item.path}
-            collapsed={collapsed}
-        />
-    )), [collapsed, sidebarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem
+                    item={item}
+                    key={item.path}
+                    collapsed={collapsed}
+                />
+            )),
+        [collapsed, sidebarItemsList],
+    );
 
     return (
         <aside
@@ -39,20 +43,19 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 className,
             ])}
         >
-
             <Button
                 data-testid="sidebar-toggle"
                 className={cls.toggleBtn}
                 theme={ThemeButton.CLEAR}
                 onClick={onToggle}
             >
-                {collapsed
-                    ? <ArrowRight className={cls.toggleArrow} />
-                    : <ArrowLeft className={cls.toggleArrow} />}
+                {collapsed ? (
+                    <ArrowRight className={cls.toggleArrow} />
+                ) : (
+                    <ArrowLeft className={cls.toggleArrow} />
+                )}
             </Button>
-            <div className={cls.items}>
-                {itemsList}
-            </div>
+            <div className={cls.items}>{itemsList}</div>
             <div className={cls.switchers}>
                 <LangSwitcher />
                 <ThemeSwitcher />

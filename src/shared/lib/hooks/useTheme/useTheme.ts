@@ -4,8 +4,8 @@ import { Theme } from '../../../constants/theme';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localStorage';
 
 interface useThemeResult {
-  toggleTheme: () => void;
-  theme: Theme;
+    toggleTheme: () => void;
+    theme: Theme;
 }
 
 export function useTheme(): useThemeResult {

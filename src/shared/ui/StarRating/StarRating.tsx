@@ -6,19 +6,19 @@ import { Icon } from '../Icon/Icon';
 
 interface StarRatingProps {
     className?: string;
-    onSelect?: (starsCount: number) => void
-    size?: number
-    selectedStars?: number
+    onSelect?: (starsCount: number) => void;
+    size?: number;
+    selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className, onSelect, size = 30, selectedStars,
-    } = props;
+    const { className, onSelect, size = 30, selectedStars } = props;
 
-    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars || 0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(
+        selectedStars || 0,
+    );
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {
@@ -43,7 +43,6 @@ export const StarRating = memo((props: StarRatingProps) => {
 
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
-
             {stars.map((starNumber) => (
                 <Icon
                     className={classNames(

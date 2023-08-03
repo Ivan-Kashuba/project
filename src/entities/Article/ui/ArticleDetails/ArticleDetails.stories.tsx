@@ -15,8 +15,10 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
-const article : Article = {
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+    <ArticleDetails {...args} />
+);
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -115,51 +117,63 @@ Normal.args = {
     id: '1',
 };
 
-Normal.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {
     id: '1',
 };
 
-Dark.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Dark.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 
 export const Error = Template.bind({});
 Error.args = {
     id: '1',
 };
 
-Error.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'Some unexpected error',
-    },
-})];
+Error.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            error: 'Some unexpected error',
+        },
+    }),
+];
 
 export const LoadingDark = Template.bind({});
 LoadingDark.args = {
     id: '1',
 };
 
-LoadingDark.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+LoadingDark.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    }),
+];
 export const LoadingLight = Template.bind({});
 LoadingLight.args = {
     id: '1',
 };
 
-LoadingLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+LoadingLight.decorators = [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    }),
+];

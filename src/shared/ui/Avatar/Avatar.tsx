@@ -9,21 +9,26 @@ import { Skeleton } from '../Skeleton/Skeleton';
 interface AvatarProps {
     className?: string;
     src?: string;
-    size?: number
+    size?: number;
 }
 
 export const Avatar = (props: AvatarProps) => {
     const { src, className, size } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size || 100,
-        height: size || 100,
-        minWidth: size || 100,
-        minHeight: size || 100,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size || 100,
+            height: size || 100,
+            minWidth: size || 100,
+            minHeight: size || 100,
+        }),
+        [size],
+    );
 
     const fallback = <Skeleton height={size} width={size} border="50%" />;
-    const errorFallback = <Icon Svg={DefaultAvatar} width={size} height={size} />;
+    const errorFallback = (
+        <Icon Svg={DefaultAvatar} width={size} height={size} />
+    );
 
     return (
         <AppImage
