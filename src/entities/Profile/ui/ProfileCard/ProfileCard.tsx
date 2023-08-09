@@ -57,12 +57,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.loading,
-                ])}
-            >
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
                 <Loader />
             </div>
         );
@@ -70,12 +65,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <div
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.error,
-                ])}
-            >
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Something went wrong during profile loading')}
@@ -89,9 +79,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
-                {data?.avatar && (
-                    <Avatar src={data.avatar || DefaultAvatar} size={120} />
-                )}
+                {data?.avatar && <Avatar src={data.avatar || DefaultAvatar} size={120} />}
                 <div className={cls.form}>
                     <Input
                         label={t('Your name')}

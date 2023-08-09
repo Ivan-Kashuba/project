@@ -11,11 +11,7 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleView } from '../../model/const/articleConst';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
-import {
-    Article,
-    ArticleBlockType,
-    ArticleTextBlock,
-} from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/constants/router';
 import { AppImage } from '@/shared/ui/AppImage/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
@@ -28,17 +24,10 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo(
-    ({
-        className,
-        article,
-        view = ArticleView.SMALL,
-        target,
-    }: ArticleListItemProps) => {
+    ({ className, article, view = ArticleView.SMALL, target }: ArticleListItemProps) => {
         const { t } = useTranslation();
 
-        const types = (
-            <Text text={article.type.join(', ')} className={cls.types} />
-        );
+        const types = <Text text={article.type.join(', ')} className={cls.types} />;
         const views = (
             <>
                 <Text text={String(article.views)} className={cls.views} />
@@ -53,23 +42,14 @@ export const ArticleListItem = memo(
 
             return (
                 <div
-                    className={classNames(cls.ArticleListItem, {}, [
-                        className,
-                        cls[view],
-                    ])}
+                    className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
                     data-testid="ArticleListItem"
                 >
                     <Card>
                         <div className={cls.header}>
                             <Avatar src={article.user.avatar} size={30} />
-                            <Text
-                                text={article.user.username}
-                                className={cls.username}
-                            />
-                            <Text
-                                text={article.createdAt}
-                                className={cls.date}
-                            />
+                            <Text text={article.user.username} className={cls.username} />
+                            <Text text={article.createdAt} className={cls.date} />
                         </div>
                         <Text title={article.title} className={cls.title} />
                         {types}
@@ -87,13 +67,8 @@ export const ArticleListItem = memo(
                             />
                         )}
                         <div className={cls.footer}>
-                            <AppLink
-                                target={target}
-                                to={getRouteArticleDetails(article.id)}
-                            >
-                                <Button theme={ThemeButton.OUTLINE}>
-                                    {t('Read more...')}
-                                </Button>
+                            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
+                                <Button theme={ThemeButton.OUTLINE}>{t('Read more...')}</Button>
                             </AppLink>
                             {views}
                         </div>
@@ -107,10 +82,7 @@ export const ArticleListItem = memo(
                 data-testid="ArticleListItem"
                 target={target}
                 to={getRouteArticleDetails(article.id)}
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card>
                     <div className={cls.imageWrapper}>

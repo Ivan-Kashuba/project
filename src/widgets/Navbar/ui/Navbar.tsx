@@ -10,7 +10,7 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
-import { getRouteArticleCreate } from '@/shared/constants/router';
+import { ArticleCreateFormModal } from '@/features/createArticle';
 
 interface NavbarProps {
     className?: string;
@@ -20,13 +20,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const [isCreatingArticleOpened, setIsCreatingArticleOpened] = useState(false);
 
-    const onCloseModal = useCallback(() => {
+    const onCloseAuthModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
 
-    const onShowModal = useCallback(() => {
+    const onShowAuthModal = useCallback(() => {
         setIsAuthModal(true);
+    }, []);
+
+    const onShowCreateArticleModal = useCallback(() => {
+        setIsCreatingArticleOpened(true);
+    }, []);
+
+    const onCloseCreateArticleModal = useCallback(() => {
+        setIsCreatingArticleOpened(false);
     }, []);
 
     const authData = useSelector(getUserAuthData);
@@ -38,14 +47,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     <AppLink to="/">
                         <Text className={cls.appName} title={t('FTD APP')} />
                     </AppLink>
-                    <AppLink to={getRouteArticleCreate()}>
+                    <Button theme={ThemeButton.CLEAR} onClick={onShowCreateArticleModal}>
                         {t('Create article')}
-                    </AppLink>
+                    </Button>
                 </div>
+
                 <div className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropdown />
                 </div>
+
+                {isCreatingArticleOpened && (
+                    <ArticleCreateFormModal
+                        isOpen={isCreatingArticleOpened}
+                        onClose={onCloseCreateArticleModal}
+                    />
+                )}
             </div>
         );
     }
@@ -55,13 +72,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <Button
                 theme={ThemeButton.OUTLINE}
                 className={cls.loginButton}
-                onClick={onShowModal}
+                onClick={onShowAuthModal}
             >
                 {t('Login')}
             </Button>
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseAuthModal} />}
         </div>
     );
 });

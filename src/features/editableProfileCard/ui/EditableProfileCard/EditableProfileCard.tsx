@@ -48,9 +48,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.NO_DATA]: t('Data not specified'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Invalid region'),
         [ValidateProfileError.INCORRECT_AGE]: t('Invalid age'),
-        [ValidateProfileError.INCORRECT_USER_DATA]: t(
-            'First and last name required',
-        ),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('First and last name required'),
     };
 
     useInitialEffect(() => {
@@ -117,9 +115,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.EditableProfileCard, {}, [className])}
-            >
+            <div className={classNames(cls.EditableProfileCard, {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length &&
                     validateErrors.map((err) => (

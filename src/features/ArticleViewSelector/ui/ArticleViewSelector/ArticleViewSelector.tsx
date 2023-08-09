@@ -31,9 +31,7 @@ export const ArticleViewSelector = memo(
         };
 
         return (
-            <div
-                className={classNames(cls.ArticleViewSelector, {}, [className])}
-            >
+            <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
                 {viewTypes.map((viewType) => (
                     <Button
                         theme={ThemeButton.CLEAR}

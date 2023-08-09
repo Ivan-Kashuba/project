@@ -48,19 +48,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         switch (block.type) {
             case ArticleBlockType.CODE:
                 return (
-                    <ArticleCodeBlockComponent
-                        key={block.id}
-                        className={cls.block}
-                        block={block}
-                    />
+                    <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block} />
                 );
             case ArticleBlockType.TEXT:
                 return (
-                    <ArticleTextBlockComponent
-                        key={block.id}
-                        block={block}
-                        className={cls.block}
-                    />
+                    <ArticleTextBlockComponent key={block.id} block={block} className={cls.block} />
                 );
             case ArticleBlockType.IMAGE:
                 return (
@@ -87,12 +79,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton
-                    className={cls.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
+                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
                 <Skeleton className={cls.title} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={23} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -100,21 +87,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             </>
         );
     } else if (error) {
-        content = (
-            <Text
-                align={TextAlign.CENTER}
-                title={t("Current article doesn't found")}
-            />
-        );
+        content = <Text align={TextAlign.CENTER} title={t("Current article doesn't found")} />;
     } else {
         content = (
             <>
                 <div className={cls.avatarWrapper}>
-                    <Avatar
-                        size={200}
-                        src={article?.img || ''}
-                        className={cls.avatar}
-                    />
+                    <Avatar size={200} src={article?.img || ''} className={cls.avatar} />
                 </div>
                 <Text
                     size={TextSize.L}
@@ -123,10 +101,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     text={article?.subtitle}
                 />
 
-                <div
-                    data-testid="ArticleDetails.Info"
-                    className={cls.articleInfo}
-                >
+                <div data-testid="ArticleDetails.Info" className={cls.articleInfo}>
                     <Icon Svg={EyeIcon} className={cls.eyeIcon} />
                     <Text text={String(article?.views)} />
                 </div>
@@ -142,9 +117,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
-                {content}
-            </div>
+            <div className={classNames(cls.ArticleDetails, {}, [className])}>{content}</div>
         </DynamicModuleLoader>
     );
 });

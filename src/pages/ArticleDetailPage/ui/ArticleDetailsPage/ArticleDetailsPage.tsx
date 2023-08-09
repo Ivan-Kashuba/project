@@ -32,11 +32,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <Page>
             <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-                <div
-                    className={classNames(cls.ArticleDetailsPage, {}, [
-                        className,
-                    ])}
-                >
+                <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />

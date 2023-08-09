@@ -16,34 +16,28 @@ interface TabsProps {
     onTabClick: (tab: TabItem) => void;
 }
 
-export const Tabs = memo(
-    ({ className, tabs, onTabClick, value }: TabsProps) => {
-        const clickHandle = useCallback(
-            (tab: TabItem) => () => {
-                onTabClick(tab);
-            },
-            [onTabClick],
-        );
+export const Tabs = memo(({ className, tabs, onTabClick, value }: TabsProps) => {
+    const clickHandle = useCallback(
+        (tab: TabItem) => () => {
+            onTabClick(tab);
+        },
+        [onTabClick],
+    );
 
-        return (
-            <div className={classNames(cls.Tabs, {}, [className])}>
-                {tabs.map((tab, index) => (
-                    <Button theme={ThemeButton.CLEAR} key={index}>
-                        <Card
-                            theme={
-                                tab.value === value
-                                    ? CardTheme.NORMAL
-                                    : CardTheme.OUTLINED
-                            }
-                            className={cls.card}
-                            key={tab.value}
-                            onClick={clickHandle(tab)}
-                        >
-                            {tab.content}
-                        </Card>
-                    </Button>
-                ))}
-            </div>
-        );
-    },
-);
+    return (
+        <div className={classNames(cls.Tabs, {}, [className])}>
+            {tabs.map((tab, index) => (
+                <Button theme={ThemeButton.CLEAR} key={index}>
+                    <Card
+                        theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                        className={cls.card}
+                        key={tab.value}
+                        onClick={clickHandle(tab)}
+                    >
+                        {tab.content}
+                    </Card>
+                </Button>
+            ))}
+        </div>
+    );
+});

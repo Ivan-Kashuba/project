@@ -1,43 +1,44 @@
 {
-    "Admin": "Admin",
-    "Admin panel": "Admin panel",
-    "By": "By",
-    "Cancel": "Cancel",
-    "Comments": "Comments",
-    "Comments are empty": "Comments are empty",
-    "Create article": "Create article",
-    "Current article doesn't found": "Current article doesn't found",
-    "FTD APP": "FTD APP",
-    "How useful this article is?": "How useful this article is?",
-    "Leave a feedback to improve quality of platform": "Leave a feedback to improve quality of platform",
-    "Login": "Login",
-    "Login Form": "Login Form",
-    "Logout": "Logout",
-    "Page not found": "Page not found",
-    "Password": "Password",
-    "Profile": "Profile",
-    "Read more": {
-        "": {
-            "": {
-                "": ""
-            }
-        }
-    },
-    "Search": "Search",
-    "Select country": "Select country",
-    "Select currency": "Select currency",
-    "Send": "Send",
-    "Some unexpected error": "Some unexpected error",
-    "Sort by": "Sort by",
-    "Thanks for feedback": "Thanks for feedback",
-    "Type comment text": "Type comment text",
-    "Type your feedback": "Type your feedback",
-    "Update page": "Update page",
-    "Username": "Username",
-    "You have no access to this page": "You have no access to this page",
-    "created date": "created date",
-    "decreasing": "decreasing",
-    "increasing": "increasing",
-    "title": "title",
-    "views": "views"
+  "Admin": "Admin",
+  "Admin panel": "Admin panel",
+  "By": "By",
+  "Cancel": "Cancel",
+  "Comments": "Comments",
+  "Comments are empty": "Comments are empty",
+  "Create article": "Create article",
+  "Current article doesn't found": "Current article doesn't found",
+  "FTD APP": "FTD APP",
+  "How useful this article is?": "How useful this article is?",
+  "Leave a feedback to improve quality of platform": "Leave a feedback to improve quality of platform",
+  "Login": "Login",
+  "Login Form": "Login Form",
+  "Logout": "Logout",
+  "Page not found": "Page not found",
+  "Password": "Password",
+  "Profile": "Profile",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "Search": "Search",
+  "Select country": "Select country",
+  "Select currency": "Select currency",
+  "Send": "Send",
+  "Some unexpected error": "Some unexpected error",
+  "Sort by": "Sort by",
+  "Thanks for feedback": "Thanks for feedback",
+  "Title": "Title",
+  "Type comment text": "Type comment text",
+  "Type your feedback": "Type your feedback",
+  "Update page": "Update page",
+  "Username": "Username",
+  "You have no access to this page": "You have no access to this page",
+  "created date": "created date",
+  "decreasing": "decreasing",
+  "increasing": "increasing",
+  "title": "title",
+  "views": "views"
 }

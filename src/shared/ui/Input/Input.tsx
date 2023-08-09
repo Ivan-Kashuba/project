@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, memo, useState } from 'react';
+import * as React from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import ErrorIcon from '@/shared/assets/icons/errorIcon.svg';
 import OpenEyeIcon from '@/shared/assets/icons/openEyeIcon.svg';
@@ -14,11 +15,13 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
+    formikHandleChange?: (e: React.ChangeEvent<any>) => void;
     isPassword?: boolean;
     isError?: boolean;
     errorText?: string;
     label?: string;
     readOnly?: boolean;
+    isFormik?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -34,12 +37,12 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         name,
         readOnly,
+        isFormik,
+        formikHandleChange,
         ...otherProps
     } = props;
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
-    };
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -53,20 +56,14 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.Input, mods, [className])}>
-            {label && (
-                <div className={isError ? cls.labelError : cls.label}>
-                    {label}
-                </div>
-            )}
+            {label && <div className={isError ? cls.labelError : cls.label}>{label}</div>}
 
             <input
-                type={
-                    !isPassword ? type : `${showPassword ? 'text' : 'password'}`
-                }
+                type={!isPassword ? type : `${showPassword ? 'text' : 'password'}`}
                 placeholder={placeholder}
                 name={name}
                 value={value}
-                onChange={onChangeHandler}
+                onChange={isFormik ? formikHandleChange : onChangeHandler}
                 className={isError ? cls.inputStyleError : cls.inputStyle}
                 readOnly={readOnly}
                 {...otherProps}
@@ -82,9 +79,7 @@ export const Input = memo((props: InputProps) => {
                     {showPassword ? <CloseEyeIcon /> : <OpenEyeIcon />}
                 </div>
             )}
-            {isError && errorText && (
-                <div className={cls.errorText}>{errorText}</div>
-            )}
+            {isError && errorText && <div className={cls.errorText}>{errorText}</div>}
         </div>
     );
 });

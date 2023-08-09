@@ -22,15 +22,7 @@ interface RatingCardProps {
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-    const {
-        className,
-        onCancel,
-        onAccept,
-        title,
-        feedbackTitle,
-        hasFeedback,
-        rate = 0,
-    } = props;
+    const { className, onCancel, onAccept, title, feedbackTitle, hasFeedback, rate = 0 } = props;
 
     const isMobile = useDetectDevice();
 
@@ -94,17 +86,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card
-            data-testid="RatingCard"
-            className={classNames('', {}, [className])}
-        >
+        <Card data-testid="RatingCard" className={classNames('', {}, [className])}>
             <div className={cls.container}>
                 <Text title={starsCount ? t('Thanks for feedback') : title} />
-                <StarRating
-                    selectedStars={starsCount}
-                    size={40}
-                    onSelect={onSelectStars}
-                />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
             </div>
             {hasFeedback && !isMobile && (
                 <Modal isOpen={isModalOpened} onClose={onCloseModal} lazy>

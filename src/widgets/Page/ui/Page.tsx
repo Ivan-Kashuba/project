@@ -22,12 +22,7 @@ interface PageProps extends TestProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = ({
-    className,
-    children,
-    onScrollEnd,
-    ...props
-}: PageProps) => {
+export const Page = ({ className, children, onScrollEnd, ...props }: PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
@@ -60,9 +55,7 @@ export const Page = ({
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? (
-                <div className={cls.trigger} ref={triggerRef} />
-            ) : null}
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </main>
     );
 };

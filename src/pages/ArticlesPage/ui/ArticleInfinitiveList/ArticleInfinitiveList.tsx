@@ -20,42 +20,31 @@ interface ArticleInfinitiveListProps {
     className?: string;
 }
 
-export const ArticleInfinitiveList = memo(
-    ({ className }: ArticleInfinitiveListProps) => {
-        const dispatch = useAppDispatch();
-        const { t } = useTranslation('article');
-        const articles = useSelector(getArticles.selectAll);
-        const isLoading = useSelector(getArticlesPageIsLoading);
-        const view = useSelector(getArticlesPageIsView);
-        const error = useSelector(getArticlesPageError);
-        const [searchParams] = useSearchParams();
+export const ArticleInfinitiveList = memo(({ className }: ArticleInfinitiveListProps) => {
+    const dispatch = useAppDispatch();
+    const { t } = useTranslation('article');
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const view = useSelector(getArticlesPageIsView);
+    const error = useSelector(getArticlesPageError);
+    const [searchParams] = useSearchParams();
 
-        useInitialEffect(() => {
-            dispatch(initArticlesPage(searchParams));
-        });
+    useInitialEffect(() => {
+        dispatch(initArticlesPage(searchParams));
+    });
 
-        if (error) {
-            return (
-                <Text
-                    title={t('Something went wrong')}
-                    theme={TextTheme.ERROR}
-                />
-            );
-        }
+    if (error) {
+        return <Text title={t('Something went wrong')} theme={TextTheme.ERROR} />;
+    }
 
-        return (
-            <div
-                className={classNames(cls.ArticleInfinitiveList, {}, [
-                    className,
-                ])}
-            >
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                    className={cls.list}
-                />
-            </div>
-        );
-    },
-);
+    return (
+        <div className={classNames(cls.ArticleInfinitiveList, {}, [className])}>
+            <ArticleList
+                isLoading={isLoading}
+                view={view}
+                articles={articles}
+                className={cls.list}
+            />
+        </div>
+    );
+});

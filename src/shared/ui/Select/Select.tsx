@@ -30,11 +30,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     const optionList = useMemo(
         () =>
             options?.map((opt) => (
-                <option
-                    className={cls.option}
-                    value={opt.value}
-                    key={opt.value}
-                >
+                <option className={cls.option} value={opt.value} key={opt.value}>
                     {opt.content}
                 </option>
             )),

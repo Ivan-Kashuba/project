@@ -4,12 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import {
-    getUserAuthData,
-    isUserAdmin,
-    isUserManager,
-    userActions,
-} from '@/entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
 
@@ -39,9 +34,7 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
         <Dropdown
             className={classNames('', {}, [className])}
             items={[
-                ...(isAdminPanelAvailable
-                    ? [{ content: t('Admin'), href: getRouteAdmin() }]
-                    : []),
+                ...(isAdminPanelAvailable ? [{ content: t('Admin'), href: getRouteAdmin() }] : []),
                 { content: t('Profile'), href: getRouteProfile(authData.id) },
                 { content: t('Logout'), onClick: onLogout },
             ]}
