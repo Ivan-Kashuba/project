@@ -1,20 +1,20 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import ArticleEditPage from './ArticleEditPage';
+import { ArticleInputsByType } from './ArticleInputsByType';
 import { Theme } from '@/shared/constants/theme';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'pages/ArticleEditPage',
-    component: ArticleEditPage,
+    title: 'shared/ArticleInputsByType',
+    component: ArticleInputsByType,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof ArticleEditPage>;
+} as ComponentMeta<typeof ArticleInputsByType>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof ArticleInputsByType> = (args) => (
+    <ArticleInputsByType {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

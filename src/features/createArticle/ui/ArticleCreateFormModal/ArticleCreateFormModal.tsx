@@ -16,7 +16,7 @@ export const ArticleCreateFormModal = memo((props: ArticleCreateFormModalProps) 
     return (
         <Modal isOpen={isOpen} onClose={onClose} className={classNames('', {}, [className])} lazy>
             <Suspense fallback={<Loader />}>
-                <ArticleCreateFormLazy />
+                <ArticleCreateFormLazy onClose={onClose} />
             </Suspense>
         </Modal>
     );
